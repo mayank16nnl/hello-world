@@ -5,4 +5,4 @@ jobs:
       image: ubuntu-2004:202010-01 # recommended linux image
     resource_class: large
     steps:
-      ... // other config
+       - run: echo 'Hello, Windows'
