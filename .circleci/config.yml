@@ -6,4 +6,9 @@ jobs:
     resource_class: large
     steps:
        - run: echo 'Hello, Windows'
+   build_and_test: # < Slack and Email notifications will be delivered for workflows
+    jobs:
+    # IRC integrations will receive notification for each job.
+      - build
+      - test     
  
