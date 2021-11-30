@@ -6,3 +6,8 @@ jobs:
     resource_class: large
     steps:
        - run: echo 'Hello, Windows'
+       workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
