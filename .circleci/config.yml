@@ -3,6 +3,7 @@ workflow:
   test-deploy:
    jobs:
      --test
+     -deploy
 jobs:
   build:
     machine:
