@@ -1,17 +1,16 @@
 version: 2.1
-orbs:
-  ssh-deployment: singularitynet/ssh-deployment@1.1.8
-workflows:
-  deploy_application:
-    jobs:
-      - ssh-deployment/deploy:
-          ssh-host: localhost
-          ssh-user: ubuntu
-          git-repo: example-service
-          git-branch: master
-          mainnet-port: '7000'
-          run-command: add.php
-          test-command: add.php
+workflow:
+  test-deploy:
+   jobs:
+     --test
+     -deploy
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202010-01 # recommended linux image
+    resource_class: large
+    steps:
+       - run: echo 'Hello, Ubuntu'
          
 
       
