@@ -10,8 +10,8 @@ workflows:
           git-repo: example-service
           git-branch: master
           mainnet-port: '7000'
-          run-command: python3 run_example_service.py
-          test-command: python3 test_example_service.py
+          run-command: add.php
+          test-command: add.php
          
 
       
