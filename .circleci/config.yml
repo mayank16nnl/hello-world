@@ -13,10 +13,7 @@ workflows:
           mainnet-port: '7000'
           run-command: python3 run_example_service.py
           test-command: python3 test_example_service.py
-          docker-test-files: 'Dockerfile, requirements.txt'
-          docker-file-path: Dockerfile
-          docker-image: EXAMPLE_IMAGE_NAME
-          docker-container: EXAMPLE_CONTAINER_NAME
+         
 
       
  
