@@ -1,15 +1,21 @@
+orbs:
+  ssh-deployment: singularitynet/ssh-deployment@1.1.8
 version: 2.1
-workflow:
-  test-deploy:
-   jobs:
-     --test
-     -deploy
-jobs:
-  build:
-    machine:
-      image: ubuntu-2004:202010-01 # recommended linux image
-    resource_class: large
-    steps:
-       - run: echo 'Hello, Ubuntu'
+workflows:
+  deploy_application:
+    jobs:
+      - ssh-deployment/deploy:
+          ssh-host: localhost
+          ssh-user: ubuntu
+          git-repo: example-service
+          git-branch: master
+          mainnet-port: '7000'
+          run-command: python3 run_example_service.py
+          test-command: python3 test_example_service.py
+          docker-test-files: 'Dockerfile, requirements.txt'
+          docker-file-path: Dockerfile
+          docker-image: EXAMPLE_IMAGE_NAME
+          docker-container: EXAMPLE_CONTAINER_NAME
+
       
  
