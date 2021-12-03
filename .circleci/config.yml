@@ -1,34 +1,17 @@
 version: 2.1
-orbs:
-  slack: circleci/slack@4.5.0
+workflow:
+  test-deploy:
+   jobs:
+     --test
+     -deploy
 jobs:
-  run_tests:
-    docker:
-      - image: circleci/node:12
+  build:
+    machine:
+      image: ubuntu-2004:202010-01 # recommended linux image
+    resource_class: large
     steps:
-      - checkout
-      - run:
-          name: Install npm dependencies
-          command: |
-            sudo npm install -g
-      - run:
-          name: Run Unit Tests
-          command: |
-            ./node_modules/mocha/bin/mocha test/ --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-results
-  vulnerability_scan:
-    docker:
-      - image: circleci/node:12
-    steps:
-      - checkout
-      - run:
-          name: Install npm dependencies
-          command: |
-            sudo npm install -g
-      - snyk/scan
-workflows:
-    example-workflow:
-      jobs:
-        - slack/on-hold
+       - run: echo 'Hello, Ubuntu'
+       
 
       
  
