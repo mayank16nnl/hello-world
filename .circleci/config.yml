@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
- snyk: snyk/snyk@x.y.z
+  slack: circleci/slack@4.5.0
 jobs:
   run_tests:
     docker:
@@ -26,10 +26,9 @@ jobs:
             sudo npm install -g
       - snyk/scan
 workflows:
-  build_test:
-    jobs:
-      - run_tests
-      - vulnerability_scan
+    example-workflow:
+      jobs:
+        - slack/on-hold
 
       
  
