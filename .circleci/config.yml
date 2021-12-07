@@ -1,6 +1,9 @@
-      version: 2
+ version: 2.1
 jobs:
-  deploy-job:
+  build:
+    machine:
+      image: ubuntu-1604:202007-01
+      deploy-job:
     steps:
       - add_ssh_keys:
           fingerprints:
