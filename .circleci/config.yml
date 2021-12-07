@@ -8,6 +8,15 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:0zp9AZY9+uKbGfnI2wYGid7hNw7wiEVnqSvQQB8RRXo rahul.kumar@healthians.com SSH Key"
+            commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: echo << parameters.to >>
        
 
       
