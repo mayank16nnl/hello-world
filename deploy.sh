@@ -1,6 +1,29 @@
-#!/bin/bash
+on: push
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm install-ci-test
+    - uses:
 
-echo "Start deploy"
-1111111111
-echo "Deploy end"
-asadasd
+
+
+
+
+
+
+
+
+
+
+  publish:
+    needs: [test]
+    steps:
+    - uses: actions/checkout@v3
